@@ -3,7 +3,7 @@ import { CubeDataListAtom } from "../atoms/CubeDataListAtom";
 import { useEffect } from "react";
 import "./menu.less";
 
-export const Menu = (props) => {
+export const Menu = (props: { openGuide: () => void }) => {
   const [cubeDataList, setCubeDataList] = useRecoilState(CubeDataListAtom);
 
   const handleSaveBtnClick = () => {
