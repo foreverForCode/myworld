@@ -5,7 +5,7 @@ import { Physics } from "@react-three/cannon";
 import { Ground } from "./components/Ground";
 import { Player } from "./components/Player";
 import { Cube } from "./components/Cube";
-import "./App.css";
+import "./App.less";
 import { useRecoilState } from "recoil";
 import { CubeDataListAtom } from "./atoms/CubeDataListAtom";
 import { CubeData } from "./interfaces/CubeData";
@@ -15,8 +15,8 @@ import { TextureSelector } from "./components/TextureSelector";
 import { Menu } from "./components/Menu";
 
 function App() {
+  const [guideStatus, setGuideStatus] = useState<boolean>(true);
   const [cubeDataList, setCubeDataList] = useRecoilState(CubeDataListAtom);
-
   const [cubeTexture, setCubeTexture] = useRecoilState(CubeTextureAtom);
   const addCube = (x: number, y: number, z: number) => {
     const newCube: CubeData = {
@@ -49,7 +49,28 @@ function App() {
       </Canvas>
       <div className="center">+</div>
       <TextureSelector />
-      <Menu />
+      <Menu
+        openGuide={() => {
+          setGuideStatus(true);
+        }}
+      />
+      {guideStatus && (
+        <div className="guide_container">
+          <div
+            className="del_btn"
+            onClick={() => {
+              setGuideStatus(false);
+            }}
+          >
+            X
+          </div>
+          <div className="g_center">操作指南</div>
+          <div>1. W S A D为上下左右方向键</div>
+          <div>2. Space为跳起</div>
+          <div>3. 1 2 3 4选择不同的方块</div>
+          <div>4. 按住Ctrl键点击方块为删除功能</div>
+        </div>
+      )}
     </>
   );
 }

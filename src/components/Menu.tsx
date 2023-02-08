@@ -1,8 +1,9 @@
 import { useRecoilState } from "recoil";
 import { CubeDataListAtom } from "../atoms/CubeDataListAtom";
 import { useEffect } from "react";
+import "./menu.less";
 
-export const Menu = () => {
+export const Menu = (props) => {
   const [cubeDataList, setCubeDataList] = useRecoilState(CubeDataListAtom);
 
   const handleSaveBtnClick = () => {
@@ -23,10 +24,20 @@ export const Menu = () => {
 
   return (
     <div style={{ position: "absolute", left: "20px", top: "10px" }}>
-      <button style={{ marginRight: "10px" }} onClick={handleSaveBtnClick}>
+      <button className="btn" onClick={handleSaveBtnClick}>
         Save
       </button>
-      <button onClick={handleResetBtnClick}>Reset</button>
+      <button className="btn" onClick={handleResetBtnClick}>
+        Reset
+      </button>
+      <button
+        className="btn"
+        onClick={() => {
+          props.openGuide && props.openGuide();
+        }}
+      >
+        操作指南
+      </button>
     </div>
   );
 };
