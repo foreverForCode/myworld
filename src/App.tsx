@@ -65,10 +65,11 @@ function App() {
             X
           </div>
           <div className="g_center">操作指南</div>
-          <div>1. W S A D为上下左右方向键</div>
-          <div>2. Space为跳起</div>
-          <div>3. 1 2 3 4选择不同的方块</div>
-          <div>4. 按住Ctrl键点击方块为删除功能</div>
+          <div>1. 按ESC键退出游戏模式</div>
+          <div>2. W S A D为上下左右方向键</div>
+          <div>3. Space为跳起</div>
+          <div>4. 1 2 3 4 5 选择不同的方块</div>
+          <div>5. 按住Ctrl键点击方块为删除功能</div>
         </div>
       )}
     </>
